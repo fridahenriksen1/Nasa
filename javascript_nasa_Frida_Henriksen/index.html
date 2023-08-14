@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+
+    <title>Nasa</title>
+  </head>
+  <body>
+    <section class="container">
+      <header class="main-header">
+        <h1>Nasa Mars Rovers</h1>
+        <label class="switchBtn">
+          <input type="checkbox" id="switchBtn" />
+          <span class="slider round"></span>
+        </label>
+      </header>
+      <section class="hero">
+        <article>
+          <h3 class="redPlanet">The red planet</h3>
+          <h1 class="mars-Hero">Mars</h1>
+        </article>
+      </section>
+      <main class="main-main">
+        <div class="text-box">
+          <form autocomplete="off">
+            <label for="spaceName">Choose your Space Name</label>
+            <h4>Space namne (must be 3 characters)</h4>
+            <input
+              id="spaceName"
+              type="text"
+              placeholder="Pick your space name"
+            />
+            <input id="sendBtn" type="submit" value="Show my name" disabled />
+          </form>
+
+          <!--Sätta margin här istället-->
+          <div>
+            <h1 class="input-text"></h1>
+
+            <h2 class="text-mars">Pictures of Mars</h2>
+          </div>
+        </div>
+        <section class="mars-container"></section>
+        <section class="mars-container pic-section-two"></section>
+        <section class="mars-container pic-section-three"></section>
+      </main>
+    </section>
+    <script src="script.js"></script>
+  </body>
+</html>

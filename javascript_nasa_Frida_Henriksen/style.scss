@@ -1,0 +1,508 @@
+//Fonter
+$primaryFont: "Orbitron", sans-serif;
+$secondary-font: "Roboto", sans-serif;
+
+//Färger
+$primaryColor: rgba(194, 190, 194, 0.927);
+$secondaryColor: #e64f34bd;
+$secondaryColorLighter: #e0f0ea;
+$lightmode-light: #f6f2e9;
+$lightmode-text: #e64f34bd;
+
+$white-color: white;
+
+//Breakpoint
+
+$breakpoint-ipad: 800px;
+$breakpoint-desktop: 1000px;
+
+*,html {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+//En transitión när det ändra i dark-light mode
+body {
+  transition: 0.3s;
+  font-family: $primaryFont;
+}
+
+//Container som håller i allt
+
+.container {
+  background-color: #0f0a17;
+  margin: auto;
+  min-height: 100vh;
+  //Style i header
+  .main-header {
+    background-color: black;
+
+    min-height: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+    font-family: $secondary-font;
+    h1 {
+      text-transform: uppercase;
+      font-size: 1rem;
+      letter-spacing: 4px;
+      overflow: hidden;
+      background: linear-gradient(90deg, #000, #fff, #000);
+      background-repeat: no-repeat;
+      background-size: 80%;
+      animation: animate 3s linear infinite;
+      background-clip: text;
+      -webkit-text-fill-color: rgba(255, 255, 255, 0);
+      @media (min-width: $breakpoint-ipad) {
+        font-size: 2rem;
+      }
+    }
+    @keyframes animate {
+      0% {
+        background-position: -500%;
+      }
+      100% {
+        background-position: 500%;
+      }
+    }
+  }
+  //Hero bilden och style för den zoomar in lite i mobil
+  .hero {
+    background-image: url("img/nasa-N3BQHYOVq5E-unsplash-red@2x.jpg");
+    background-size: cover;
+    background-position: center;
+    zoom: 1.3;
+    width: 100%;
+    height: 400px;
+    color: $white-color;
+    display: flex;
+    align-items: flex-end;
+    font-family: $secondary-font;
+
+    @media (min-width: $breakpoint-ipad) {
+      zoom: 0;
+      height: 100vh;
+    }
+    article {
+      padding: 1rem;
+      max-width: 1200px;
+      @media (min-width: $breakpoint-ipad) {
+        margin: 0 auto;
+        flex: 0 0 90%;
+      }
+      .redPlanet {
+        font-size: 1.25rem;
+        font-weight: normal;
+        margin-bottom: 0.2rem;
+
+        @media (min-width: $breakpoint-ipad) {
+          font-size: 2rem;
+        }
+      }
+      .mars-Hero {
+        font-size: 1.56rem;
+        margin-top: 0.5rem;
+
+        @media (min-width: $breakpoint-ipad) {
+          font-size: 2.3rem;
+        }
+      }
+    }
+  }
+
+  .main-main {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: auto;
+    .text-box {
+      flex: 0 0 100%;
+    }
+    form {
+      max-width: 400px;
+      margin: auto;
+      display: flex;
+      flex-direction: column;
+      @media (min-width: $breakpoint-desktop) {
+        margin-top: 5rem;
+      }
+      label {
+        padding: 1rem;
+        text-align: center;
+        font-size: 2rem;
+        font-weight: 600;
+        color: $white-color;
+        font-family: $primaryFont;
+      }
+      h4 {
+        margin: 0.5rem 0 2rem 0;
+        text-align: center;
+        color: $white-color;
+      }
+      input {
+        font-size: 1.3rem;
+        padding: 1rem;
+        margin-bottom: 0.5rem;
+        border: none;
+        border-bottom: 4px solid $secondaryColor;
+
+        &.focusBorder {
+          //Tar bort default style för focus
+          outline: none;
+          border-bottom: 4px solid $primaryColor;
+        }
+        &::placeholder {
+          color: grey;
+        }
+        // Style på knappen
+        &[type="submit"] {
+          border: none;
+          background-color: $primaryColor;
+          color: $white-color;
+          transition: 0.2s;
+
+          &[type="submit"]:hover {
+            transition: delay 1.5s;
+            color: black;
+            box-shadow: 0 0 10px $primaryColor, 0 0 20px $primaryColor,
+              0 0 40px $primaryColor, 0 0 80px $primaryColor,
+              0 0 160px $primaryColor;
+            background-color: $primaryColor;
+            cursor: pointer;
+            // Stylar när knappen är disabled
+            &:disabled {
+              background-color: $secondaryColor;
+              color: $secondaryColorLighter;
+              box-shadow: none;
+              cursor: not-allowed;
+            }
+          }
+        }
+      }
+    }
+    .input-text {
+      color: $white-color;
+      margin-top: 2rem;
+      text-align: center;
+    }
+
+    //style för texten som skrivs in från input kopplat med js
+
+    .char {
+      color: $white-color;
+      transition: color ease-out 0.3s, text-shadow ease-out 0.3s;
+      text-shadow: 0 0 4rem #fff;
+    }
+    .fade-in {
+      transition: color ease-out 0.3s, text-shadow ease-out 0.3s;
+      color: rgb(255, 68, 0);
+      text-shadow: 0 0 1rem rgb(255, 68, 0);
+    }
+    .text-mars {
+      color: $white-color;
+      margin: 6rem 0 2rem 0;
+
+      @media (min-width: $breakpoint-ipad) {
+        text-align: center;
+        margin-top: 12rem;
+      }
+    }
+
+    //style för scrollbar
+    ::-webkit-scrollbar {
+      width: 20px;
+    }
+
+    /* Track */
+    ::-webkit-scrollbar-track {
+      box-shadow: inset 0 0 5px rgb(185, 185, 185);
+      border-radius: 10px;
+    }
+
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+      background: rgb(189, 188, 188);
+      border-radius: 10px;
+    }
+
+    /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+      background: #cbc5c5;
+    }
+
+    .mars-container {
+      display: flex;
+      overflow-x: auto;
+      padding: 1.5rem 0;
+      max-width: 900px;
+      margin: auto;
+
+      .mars-card {
+        flex: 0 0 212px;
+        margin-right: 1rem;
+        position: relative;
+
+        h4 {
+          color: $white-color;
+
+          @media (min-width: $breakpoint-ipad) {
+            display: none;
+          }
+        }
+        h2 {
+          color: $white-color;
+          @media (min-width: $breakpoint-ipad) {
+            display: none;
+          }
+        }
+
+        img {
+          width: 100%;
+          display: block;
+        }
+
+        .h2-overlay {
+          display: none;
+        }
+        .h4-overlay {
+          display: none;
+        }
+
+        //Här är style för overlay:en
+
+        @media (min-width: $breakpoint-ipad) {
+          .overlay {
+            position: absolute;
+            background-color: rgba($color: #000000, $alpha: 0.8);
+            width: 100%;
+            top: 0;
+            bottom: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: 0.8s;
+            cursor: pointer;
+
+            h4 {
+              text-align: center;
+              color: $white-color;
+              font-size: 1.5rem;
+              font-weight: 600;
+            }
+            .textbox-overlay {
+              text-align: center;
+              .h2-overlay {
+                display: block;
+              }
+              .h4-overlay {
+                display: block;
+              }
+            }
+          }
+          //Här syns den när man hovrar
+          &:hover {
+            .overlay {
+              opacity: 1;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+//Switch button för dark och light mode
+
+/* switch - Boxen runt slider */
+.switchBtn {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 28px;
+  /* Gömmer default HTML checkbox */
+  input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+    &:checked {
+      //När den är i kryssad
+
+      + {
+        .slider {
+          //Gör detta med slider som är mörkLila bg
+          background-color: #0f0a17;
+          &:before {
+            //Påverkar cirkeln
+            transform: translateX(23px); //hur långt cirkel förflyttar sig
+            background-color: $lightmode-light;
+          }
+        }
+      }
+    }
+    &:focus {
+      //När den är markerad klickad på
+      + {
+        .slider {
+          //Väljer alla .slider som är placerade direkt efter input
+          //Skugga när man klickar
+          box-shadow: 0 0 2px $lightmode-light;
+        }
+      }
+    }
+  }
+  // slider
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: $lightmode-light;
+    border-radius: 34px;
+    transition: 0.4s;
+    &:before {
+      //Cirkeln i slider
+      position: absolute;
+      content: "";
+      height: 20px;
+      width: 20px;
+      left: 4px;
+      bottom: 4px;
+      background-color: $lightmode-text;
+      border-radius: 50%;
+      transition: 0.4s;
+    }
+  }
+}
+//Skapa upp en klass för lightmode med style för det
+.light {
+  .container {
+    background-color: $lightmode-light;
+    h1 {
+      color: $lightmode-text;
+    }
+
+    h3 {
+      color: $lightmode-text;
+    }
+
+    p {
+      color: $lightmode-text;
+    }
+    a {
+      color: $lightmode-text;
+    }
+    .main-header {
+      background-color: $lightmode-light;
+    }
+    .hero {
+      background-image: url("img/Frida_Henriksen_light_mars_bf979505-7a54-49ed-82f3-f26d206b0cf1.png");
+      background-size: cover;
+      background-position: bottom;
+      width: 100%;
+      height: 400px;
+      color: $white-color;
+      display: flex;
+      align-items: flex-end;
+      font-family: $secondary-font;
+
+      @media (min-width: $breakpoint-ipad) {
+        height: 100vh;
+      }
+    }
+    .main-main {
+      background-color: $lightmode-light;
+      form {
+        h4 {
+          color: $lightmode-text;
+        }
+      }
+      .char {
+        color: $white-color;
+        transition: color ease-out 0.3s, text-shadow ease-out 0.3s;
+        text-shadow: 0 0 4rem #fff;
+      }
+      .fade-in {
+        transition: color ease-out 0.3s, text-shadow ease-out 0.3s;
+        color: $secondaryColor;
+        text-shadow: 0 0 1rem rgb(255, 68, 0);
+      }
+      .mars-container {
+        .mars-card {
+          h4 {
+            color: $lightmode-text;
+          }
+          h2 {
+            color: $lightmode-text;
+          }
+          .overlay {
+            .textbox-overlay {
+              .h4-overlay {
+                color: $lightmode-text;
+              }
+            }
+          }
+        }
+      }
+
+      .text-mars {
+        color: $lightmode-text;
+      }
+      h4 {
+        color: $lightmode-text;
+      }
+      .input-text {
+        color: $lightmode-text;
+      }
+      h2 {
+        color: $lightmode-text;
+      }
+      form {
+        label {
+          color: $lightmode-text;
+        }
+        input {
+          font-size: 1.3rem;
+          padding: 1rem;
+          margin-bottom: 0.5rem;
+          border: none;
+          border-bottom: 4px solid $secondaryColor;
+
+          &.focusBorder {
+            //Tar bort default style för focus
+            outline: none;
+            border-bottom: 4px solid rgb(252, 214, 166);
+          }
+          &::placeholder {
+            color: grey;
+          }
+          &[type="submit"] {
+            border: none;
+            background-color: rgb(252, 214, 166);
+            color: $white-color;
+            transition: 0.2s;
+
+            &[type="submit"]:hover {
+              transition: delay 1.5s;
+              color: black;
+              box-shadow: 0 0 10px rgb(252, 214, 166),
+                0 0 20px rgb(252, 214, 166), 0 0 40px rgb(252, 214, 166),
+                0 0 80px rgb(252, 214, 166), 0 0 160px rgb(252, 214, 166);
+              background-color: rgb(252, 214, 166);
+              cursor: pointer;
+              // Stylar när knappen är disabled
+              &:disabled {
+                background-color: $secondaryColor;
+                color: $secondaryColorLighter;
+                box-shadow: none;
+                cursor: not-allowed;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
